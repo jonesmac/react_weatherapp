@@ -1,22 +1,37 @@
 import * as React from 'react';
+import { Dispatch } from 'redux';
+import { connect } from 'react-redux';
 import './App.css';
+import { Location, newLocation } from './actions/';
+import NewLocation from './location/new-location';
+import Locations from './location//locations-list';
 
-const logo = require('./logo.svg');
+interface AppProps {
+  locations: Location[];
+  dispatch: Dispatch<{ type: string; payload: Location; }>;
+}
 
-class App extends React.Component<{}, null> {
+class App extends React.Component<AppProps, void> {
+
   render() {
+    const { locations, dispatch } = this.props;
+    
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <h2>Welcome to Weather Tracker</h2>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
+        <NewLocation addLocation={(location: Location) => dispatch(newLocation(location))} />
+        <Locations locations={locations} />
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state: any) => ({locations: state.locations});
+
+const mapDispatchToProps = (dispatch: Dispatch<{ type: string; payload: Location; }>) => ({
+  dispatch
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

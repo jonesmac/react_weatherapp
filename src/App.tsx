@@ -3,8 +3,8 @@ import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import './App.css';
 import { Location, newLocation } from './actions/';
-import NewLocation from './location/new-location';
-import Locations from './location//locations-list';
+import NewLocation from './components/location/new-location';
+import Locations from './components/location/locations-list';
 
 interface AppProps {
   locations: Location[];

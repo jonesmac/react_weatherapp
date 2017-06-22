@@ -5,6 +5,7 @@ import './locations-list.css';
 
 interface LocationsProps {
   locations: Location[];
+  removeLocation: (index: number) => { type: string, payload: number };
 }
 
 class Locations extends React.Component<LocationsProps, void> {
@@ -14,12 +15,18 @@ class Locations extends React.Component<LocationsProps, void> {
   }
 
   render() {
+    const { locations } = this.props;
     return (
       <div className="locations">
         <h2>My Locations</h2>
         <ul className="locations__list">
-          {this.props.locations.map((location: Location) => (
-            <LocationListItem location={location}/>
+          {locations.map((location: Location, index: number) => (
+            <LocationListItem
+              location={location}
+              key={index}
+              index={index}
+              removeLocation={this.props.removeLocation}
+            />
           ))}
         </ul>
       </div>

@@ -8,7 +8,7 @@ interface NewLocationProps {
 
 class NewLocation extends React.Component<NewLocationProps, void> {
   private newLocation: Location;
-  private defaultLocation = {city: '', state: '', zip: ''};
+  private defaultLocation = {city: '', state: '', zip: '', id: 0};
 
   constructor(props: NewLocationProps) {
     super(props);
@@ -17,6 +17,8 @@ class NewLocation extends React.Component<NewLocationProps, void> {
 
   resetNewLocation() {
     this.newLocation = Object.assign({}, this.defaultLocation);
+    const seconds = Math.round(new Date().getTime() / 1000);
+    this.newLocation.id = seconds;
   }
 
   handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {

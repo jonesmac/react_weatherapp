@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { Location } from '../actions/';
+import { Location } from '../../actions/';
 import LocationListItem from './locations-list-item';
+import './locations-list.css';
 
 interface LocationsProps {
   locations: Location[];
@@ -14,11 +15,14 @@ class Locations extends React.Component<LocationsProps, void> {
 
   render() {
     return (
-      <ul className="locations_list">
-        {this.props.locations.map((location: Location) => (
-          <LocationListItem location={location}/>
-        ))}
-      </ul>
+      <div className="locations">
+        <h2>My Locations</h2>
+        <ul className="locations__list">
+          {this.props.locations.map((location: Location) => (
+            <LocationListItem location={location}/>
+          ))}
+        </ul>
+      </div>
     );
   }
 }

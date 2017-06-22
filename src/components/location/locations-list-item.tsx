@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Location } from '../actions/';
+import { Location } from '../../actions/';
 
 interface LocationListItemProps {
   location: Location;

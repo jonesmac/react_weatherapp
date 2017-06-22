@@ -1,0 +1,34 @@
+.locations {
+  background-color: #fff;
+  height: 100%;
+  position: fixed;
+  right: 0;
+  top: 70px;
+  width: 15%;
+}
+
+.locations h2 {
+  border-left: 1px solid #222;
+  border-bottom: 1px solid #222;
+  font-size: 14px;
+  line-height: 36px;
+  margin: 0;
+  padding: 10px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.locations .locations__list {
+  border-left: 1px solid #222;
+  height: 100%;
+  margin: 0;
+  padding-left: 0;
+  position: fixed;
+  width: 100%;
+}
+
+.locations li {
+  border-bottom: 1px solid #222;
+  list-style: none;
+  padding: 10px 0 10px 10px;
+}

@@ -1,0 +1,24 @@
+.location__list-item {
+  position: relative;
+}
+
+.location__list-item .delete {
+  background-color: red;
+  border-radius: 15px;
+  height: 15px;
+  position: absolute;
+  right: 7px;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 15px;
+}
+
+.delete span {
+  color: #fff;
+  cursor: pointer;
+  font-size: 32px;
+  font-weight: 500;
+  position: relative;
+  top: -13px;
+}

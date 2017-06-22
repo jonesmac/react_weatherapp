@@ -16,10 +16,21 @@ export interface NewLocation {
     payload: Location;
 }
 
-export type NewLocationAction = NewLocation;
+export interface DeleteLocation {
+    type: constants.DELETE_LOCATION;
+    payload: number;
+}
+
+export type LocationAction = NewLocation | DeleteLocation;
 
 export function newLocation (location: Location) { 
   return {
-    type: constants.NEW_LOCATION, payload: location
+    type: constants.NEW_LOCATION, payload:  location
+  };
+}
+
+export function deleteLocation (index: number) { 
+  return {
+    type: constants.DELETE_LOCATION, payload: index
   };
 }

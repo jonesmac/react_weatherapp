@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import './App.css';
-import { Location, newLocation } from './actions/';
+import { Location, newLocation, deleteLocation } from './actions/';
 import NewLocation from './components/location/new-location';
 import Locations from './components/location/locations-list';
 
@@ -21,8 +21,13 @@ class App extends React.Component<AppProps, void> {
         <div className="App-header">
           <h2>Welcome to Weather Tracker</h2>
         </div>
-        <NewLocation addLocation={(location: Location) => dispatch(newLocation(location))} />
-        <Locations locations={locations} />
+        <NewLocation
+          addLocation={(location: Location) => dispatch(newLocation(location))}
+        />
+        <Locations
+          locations={locations}
+          removeLocation={(index: number) => dispatch(deleteLocation(index))}
+        />
       </div>
     );
   }
@@ -30,7 +35,7 @@ class App extends React.Component<AppProps, void> {
 
 const mapStateToProps = (state: any) => ({locations: state.locations});
 
-const mapDispatchToProps = (dispatch: Dispatch<{ type: string; payload: Location; }>) => ({
+const mapDispatchToProps = (dispatch: Dispatch<{ type: string; payload: Location | number; }>) => ({
   dispatch
 });
 

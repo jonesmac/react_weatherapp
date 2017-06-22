@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Location } from '../../actions/';
+import './new-location.css';
 
 interface NewLocationProps {
   addLocation: (location: Location) => { type: string; payload: Location; };
@@ -31,9 +32,9 @@ class NewLocation extends React.Component<NewLocationProps, void> {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="newLocations__form" onSubmit={this.handleSubmit}>
         <h2>New Location</h2>
-        <p>
+        <p className="first">
           <label name="city">City: </label>
           <input type="text" name="city" onKeyUp={this.handleChange.bind(this, 'city')} />
         </p>

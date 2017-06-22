@@ -5,6 +5,7 @@ export interface StoreState {
 }
 
 export interface Location {
+  id: number;
   city: string;
   state: string;
   zip: string;

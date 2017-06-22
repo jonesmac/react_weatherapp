@@ -18,8 +18,8 @@ class Locations extends React.Component<LocationsProps, void> {
       <div className="locations">
         <h2>My Locations</h2>
         <ul className="locations__list">
-          {this.props.locations.map((location: Location) => (
-            <LocationListItem location={location}/>
+          {this.props.locations.map((location: Location, index: number) => (
+            <LocationListItem location={location} key={index} />
           ))}
         </ul>
       </div>
